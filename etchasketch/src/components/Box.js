@@ -1,11 +1,17 @@
-let boxes = [];
-const Box=({boxNumber})=>{
- 
+import React,{useState} from 'react';
 
+const Box=({boxNumber,boxColor})=>{
+ 
+    const [isEntered,setIsEntered]=useState(false);
+const changeBox =(e) =>{
+
+setIsEntered(true);
+
+}
 
     return(
      
-   <div className="bg">
+   <div onMouseEnter={changeBox}  className={isEntered?` box ${boxColor}`:"white box "}>
          
    
    {

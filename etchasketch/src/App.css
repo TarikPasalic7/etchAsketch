@@ -10,11 +10,16 @@
   grid-auto-flow: row;
   
 }
-.bg{
+.white{
  background-color: rgb(216, 208, 208);
  display: inline-block;
  
  
+}
+
+.black{
+  background-color: black;
+  display: inline-block;
 }
 
 
