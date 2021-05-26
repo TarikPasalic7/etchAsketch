@@ -56,9 +56,15 @@ function App() {
 
   }
   const clear =()=>{
-    //setBoxColor("white");
-    //setIsClear(true);
- 
+    setBoxColor("white");
+    let tempElements=[];
+    boxElements.map((data,index)=>{
+     
+      data.isEntered=false;
+      tempElements.push(data);
+
+    });
+   addBoxElements(tempElements);
     
 
 
@@ -98,7 +104,7 @@ console.log(boxElements);
     
      {boxElements.map((data, index) => {
         //return <Box boxNumber={gridNumber} boxColor={boxColor} isClear={isClear} key={index}/>
-        return (<div /*onMouseEnter={()=>setIsClear([])} / onMouseEnter={()=>isClear[index]=true}*/   onMouseEnter={changeBox(index)} className={ data.isEntered?` box ${boxColor}`:" white box "} key={index}>{gridNumber}</div> ) 
+        return (<div /*onMouseEnter={()=>setIsClear([])} / onMouseEnter={()=>isClear[index]=true}*/   onMouseEnter={changeBox(index)} className={ data.isEntered?` box ${boxColor}`:" white box "} key={data.id}>{gridNumber}</div> ) 
       })}
     
        
