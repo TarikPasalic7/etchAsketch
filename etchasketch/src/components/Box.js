@@ -1,17 +1,21 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
-const Box=({boxNumber,boxColor})=>{
- 
-    const [isEntered,setIsEntered]=useState(false);
+const Box=({boxNumber,boxColor,isClear})=>{
+const [isEntered,setIsEntered]=useState(false);
+console.log("isentered",isEntered);
+
 const changeBox =(e) =>{
+//
 
 setIsEntered(true);
+isClear=true;
+console.log(isClear);
 
 }
 
     return(
      
-   <div onMouseEnter={changeBox}  className={isEntered?` box ${boxColor}`:"white box "}>
+   <div onMouseEnter={changeBox}   className={  isEntered?` box ${boxColor}`:" white box "}>
          
    
    {
