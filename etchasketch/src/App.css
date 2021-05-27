@@ -7,7 +7,11 @@
   margin: 20px auto;
 }
 .container{
-  grid-auto-flow: row;
+  display: grid;
+  width: 600px;
+  height: 600px;
+  grid-auto-rows: minmax(min-content, max-content);
+  
   
 }
 .white{
@@ -23,5 +27,9 @@
 }
 
 .box{
-  display: inline-block;
+
+
+  border: 1px solid #ddd;
+  text-align: center;
 }
+

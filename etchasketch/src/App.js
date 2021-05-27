@@ -14,7 +14,9 @@ function App() {
     addBoxElements([]);
     setBoxColor("white");
     let elements=[];
-    
+    let divContainer=document.getElementsByClassName("container")[0];
+    divContainer.style.gridTemplateRows=`repeat(${gridNumber},1fr)`;
+    divContainer.style.gridTemplateColumns=`repeat(${gridNumber},1fr)`;
     for (let i = 0; i < gridNumber*gridNumber; i++) {
       const obj={"id":i,
               "isEntered":false
@@ -127,7 +129,7 @@ if(boxColor==="color"){
     
      {boxElements.map((data, index) => {
         //return <Box boxNumber={gridNumber} boxColor={boxColor} isClear={isClear} key={index}/>
-        return (<div /*onMouseEnter={()=>setIsClear([])} / onMouseEnter={()=>isClear[index]=true}*/   onMouseEnter={noEvenet?changeBox(index):null} className={ data.isEntered?` box ${boxColor}`:" white box "} key={data.id}>{gridNumber}</div> ) 
+        return (<div /*onMouseEnter={()=>setIsClear([])} / onMouseEnter={()=>isClear[index]=true}*/   onMouseEnter={noEvenet?changeBox(index):null} className={ data.isEntered?` box ${boxColor}`:" white box "} key={data.id}></div> ) 
       })}
     
        
