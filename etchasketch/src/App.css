@@ -3,10 +3,36 @@
   height: 800px;
   width: 1000px;
   background-color: rgb(158, 197, 197);
-  display: flex;
+  display: inline-block;
   margin: 20px auto;
+  background-image: url("../src/img/container.jpg");
+  background-size:contain;
+  background-position: center;
+  border-radius: 15px;
+  box-shadow: black;
+  box-shadow: rgb(189, 182, 182) 10px 10px 5px;
+}
+.divBtn{
+  padding: 10px;
+
+}
+.btn{
+ background-color: rgb(226, 43, 43);
+ color: white;
+ border: 1px solid rgb(235, 235, 235);
+ border-radius: 5px;
+ font-size: larger;
+ text-shadow: black 2px 1px 1px;
+ height: 30px;
+ margin-left: 5px;
+
+}
+.btn:hover{
+
+  cursor: pointer;
 }
 .container{
+  margin: 40px auto;
   display: grid;
   width: 600px;
   height: 600px;
@@ -14,6 +40,11 @@
   
   
 }
+.container:hover{
+  cursor:url(../src/img/pen1.png),auto;
+  
+}
+
 .white{
  background-color: rgb(216, 208, 208);
  display: inline-block;
@@ -32,4 +63,5 @@
   border: 1px solid #ddd;
   text-align: center;
 }
+
 

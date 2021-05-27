@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from 'react';
 import './App.css';
-import Box from './components/Box';
+
 
 
 
@@ -39,7 +39,9 @@ function App() {
 
   const reset =()=>{
    
-    const val=prompt("How many squares per side do you want");
+    const val=prompt("How many squares per side do you want?It must be minimum 16 and maximum 100");
+    if(val>100 || val <16)
+    return;
     setGridNumber(val);
     setNoEvent(false);
 
@@ -119,17 +121,17 @@ if(boxColor==="color"){
 
   return (
     <div className="App">
-      <div>
-        <button onClick={reset} >Reset Board</button>
-        <button onClick={black} >Black</button>
-        <button onClick={clear}>Clear Board</button>
-        <button onClick={color}>Random Color</button>
+      <div className="divBtn">
+        <button className="btn" onClick={reset} >Reset Board</button>
+        <button className="btn"  onClick={black} >Black</button>
+        <button className="btn"  onClick={clear}>Clear Board</button>
+        <button className="btn"  onClick={color}>Random Color</button>
       </div>
      <div className="container">
     
      {boxElements.map((data, index) => {
-        //return <Box boxNumber={gridNumber} boxColor={boxColor} isClear={isClear} key={index}/>
-        return (<div /*onMouseEnter={()=>setIsClear([])} / onMouseEnter={()=>isClear[index]=true}*/   onMouseEnter={noEvenet?changeBox(index):null} className={ data.isEntered?` box ${boxColor}`:" white box "} key={data.id}></div> ) 
+      
+        return (<div   onMouseEnter={noEvenet?changeBox(index):null} className={ data.isEntered?` box ${boxColor}`:" white box "} key={data.id}></div> ) 
       })}
     
        
