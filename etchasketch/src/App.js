@@ -8,6 +8,7 @@ function App() {
   const [gridNumber,setGridNumber]=useState(16);
   const [boxColor,setBoxColor]=useState("white");
   const [boxElements,addBoxElements]=useState([])//
+  const [noEvenet,setNoEvent]=useState(false);
   //const [isClear,setIsClear]=useState([]);
   useEffect(()=>{
     addBoxElements([]);
@@ -38,24 +39,29 @@ function App() {
    
     const val=prompt("How many squares per side do you want");
     setGridNumber(val);
-    
+    setNoEvent(false);
 
+  }
+  const color =()=>{
+    clear();
+    setBoxColor("color");
+    setNoEvent(true);
+  
   }
   const black =()=>{
   /**  var element = document.getElementsByClassName("box");
     console.log(element);
     for(let i =0;i<element.length;i++)
     element[i].classList.add("black"); */
-    var red= Math.floor((Math.random()*255));
-	var green= Math.floor((Math.random()*255));
-	var blue= Math.floor((Math.random()*255));
-    
+
+    clear();
   setBoxColor("black");
-    
+    setNoEvent(true);
    
 
   }
   const clear =()=>{
+    setNoEvent(false);
     setBoxColor("white");
     let tempElements=[];
     boxElements.map((data,index)=>{
@@ -66,7 +72,12 @@ function App() {
     });
    addBoxElements(tempElements);
     
+    const divBox=document.getElementsByClassName("box");
+    for(let i=0;i<divBox.length;i++){
 
+        divBox[i].style.backgroundColor=null;
+        
+    }
 
    /**  
     * var element = document.getElementsByClassName("box");
@@ -81,6 +92,7 @@ function App() {
   }
 const changeBox=index=>e=>{
 
+
   console.log('index: ' + index);
 
  let newArr = [...boxElements]; 
@@ -89,6 +101,17 @@ const changeBox=index=>e=>{
 
   addBoxElements(newArr); // ??//
 console.log(boxElements);
+if(boxColor==="color"){
+  const target=e.target;
+
+  var red= Math.floor((Math.random()*255));
+    var green= Math.floor((Math.random()*255));
+    var blue= Math.floor((Math.random()*255));
+    let newColor="rgb(" + red + "," + green + "," + blue + ")";
+    
+    target.style.backgroundColor=newColor;
+
+}
 }
 
 
@@ -98,13 +121,13 @@ console.log(boxElements);
         <button onClick={reset} >Reset Board</button>
         <button onClick={black} >Black</button>
         <button onClick={clear}>Clear Board</button>
-        <button>Random Color</button>
+        <button onClick={color}>Random Color</button>
       </div>
      <div className="container">
     
      {boxElements.map((data, index) => {
         //return <Box boxNumber={gridNumber} boxColor={boxColor} isClear={isClear} key={index}/>
-        return (<div /*onMouseEnter={()=>setIsClear([])} / onMouseEnter={()=>isClear[index]=true}*/   onMouseEnter={changeBox(index)} className={ data.isEntered?` box ${boxColor}`:" white box "} key={data.id}>{gridNumber}</div> ) 
+        return (<div /*onMouseEnter={()=>setIsClear([])} / onMouseEnter={()=>isClear[index]=true}*/   onMouseEnter={noEvenet?changeBox(index):null} className={ data.isEntered?` box ${boxColor}`:" white box "} key={data.id}>{gridNumber}</div> ) 
       })}
     
        
