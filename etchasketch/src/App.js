@@ -9,7 +9,7 @@ function App() {
   const [boxColor,setBoxColor]=useState("white");
   const [boxElements,addBoxElements]=useState([])//
   const [noEvenet,setNoEvent]=useState(false);
-  //const [isClear,setIsClear]=useState([]);
+
   useEffect(()=>{
     addBoxElements([]);
     setBoxColor("white");
@@ -53,10 +53,7 @@ function App() {
   
   }
   const black =()=>{
-  /**  var element = document.getElementsByClassName("box");
-    console.log(element);
-    for(let i =0;i<element.length;i++)
-    element[i].classList.add("black"); */
+
 
     clear();
   setBoxColor("black");
@@ -83,14 +80,7 @@ function App() {
         
     }
 
-   /**  
-    * var element = document.getElementsByClassName("box");
-    * for(let i =0;i<element.length;i++)
-    {
-      element[i].classList.remove("black");
-      element[i].classList.add("white")
 
-    }*/
     
    
   }
@@ -103,7 +93,7 @@ const changeBox=index=>e=>{
   newArr[index].isEntered =true; 
   console.log(newArr[index]);
 
-  addBoxElements(newArr); // ??//
+  addBoxElements(newArr); 
 console.log(boxElements);
 if(boxColor==="color"){
   const target=e.target;
