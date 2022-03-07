@@ -22,15 +22,10 @@ function App() {
               "isEntered":false
     }
       elements.push(obj);
-     
-     
-     console.log(i);
     
     }
     
-    addBoxElements(elements);
-  console.log(boxElements);
-  
+    addBoxElements(elements); 
 
   },[gridNumber]);
 
@@ -86,15 +81,9 @@ function App() {
   }
 const changeBox=index=>e=>{
 
-
-  console.log('index: ' + index);
-
  let newArr = [...boxElements]; 
   newArr[index].isEntered =true; 
-  console.log(newArr[index]);
-
   addBoxElements(newArr); 
-console.log(boxElements);
 if(boxColor==="color"){
   const target=e.target;
 
